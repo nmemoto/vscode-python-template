@@ -1,16 +1,12 @@
 {
   "name": "python",
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "python",
-  "workspaceFolder": "/workspace",
+  "dockerFile": "Dockerfile",
   "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash",
     "python.pythonPath": "/usr/local/bin/python",
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true
+    "python.linting.enabled": false,
+    "jupyter.jupyterServerType": "local"
   },
-  "extensions": ["ms-python.python", "ms-azuretools.vscode-docker"],
+  "extensions": ["ms-python.python"],
+  "postStartCommand": "pip install -r requirements.txt",
   "remoteUser": "vscode",
-  "postCreateCommand": "sudo mkdir /home/vscode/.jupyter/lab && sudo chmod -R 777 /home/vscode/.jupyter/lab && jupyter lab",
-  "shutdownAction": "stopCompose"
 }
